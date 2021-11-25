@@ -27,5 +27,5 @@ jobs:
         id: upload-workflow-tab
         uses: actions/upload-artifact@v2
         with:
-          name: Takasur-Azeem-iOS-Developer-Resume.pdf
-          path: output/Takasur-Azeem-iOS-Developer-Resume.pdf
+          name: resume.pdf
+          path: output/resume.pdf
