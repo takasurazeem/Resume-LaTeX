@@ -1,14 +1,14 @@
-name: LateX to PDF
+name: LateX CV to PDF
 
 on:
   push:
     branches: 
-      - main
+      - master
       - develop
     tags:
        - '*'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build_latex:
@@ -22,10 +22,32 @@ jobs:
         with:
           output_dir: output
           main_latex_file: resume.tex
-          ctan_packages: amssymb latexsym amsmath
-      - name: Upload PDF to the workflow tab
+          ctan_packages: moderncv xargs bigfoot colortbl pgf fontawesome
+      - name: Upload CV in PDF to the workflow tab
         id: upload-workflow-tab
         uses: actions/upload-artifact@v2
         with:
-          name: resume.pdf
+          name: resume
           path: output/resume.pdf
+      - name: Create Release
+        id: create_release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release CV
+        id: upload-release-asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: output/resume.pdf
+          asset_name: resume.pdf
+          asset_content_type: application/pdf
