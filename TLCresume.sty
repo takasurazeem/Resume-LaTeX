@@ -2,11 +2,19 @@
 \ProvidesPackage{TLCresume}[11/19/21 resume package]
 % Author: Timmy Chan
 
-% Assuming using "article" document class and letter sized paper.
+% Assuming using "article" document class and letter-sized paper.
 % FONT STUFF
 
-\RequirePackage[T1]{fontenc} %  Font encoding https://texfaq.org/FAQ-why-inp-font
-\RequirePackage[default,semibold]{sourcesanspro}
+\usepackage{fontspec} % Use custom fonts
+\setmainfont{Spectral}[
+  Path = /Users/Shared/Resume/Resume-LaTeX/fonts/, % Change this path to the directory where your font files are located
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+
 \RequirePackage[10pt]{moresize}
 \usepackage{anyfontsize}
 \RequirePackage{csquotes}
@@ -39,8 +47,6 @@
 % BOLD COMMAND
 \newcommand{\skills}[1]{ {\bfseries #1}}
 
-
-
 % SUBTEXT
 \newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
 
@@ -60,6 +66,3 @@
 % FOR TEMPLATE FILLER
 \RequirePackage[english]{babel}
 \RequirePackage{blindtext}% Filler Text
-
-% \input{glyphtounicode}
-% \pdfgentounicode=1
