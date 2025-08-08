@@ -1,11 +1,14 @@
 # Copilot Instructions for Resume-LaTeX
-
 ## Project Overview
+
 This repository contains a LaTeX-based resume template, customized for iOS Developer roles. The main file is `resume.tex`, with modular sections in `sections/` and custom fonts in `fonts/`. The build process produces `resume.pdf`, which is then copied as `Takasur-Azeem-Resume-iOS-Developer.pdf` for distribution.
+
+
 
 ## Key Files & Structure
 - `resume.tex`: Main LaTeX source file, includes sections from `sections/`
 - `sections/`: Contains modular resume sections (e.g., `skills.tex`, `experience.tex`, etc.)
+
 - `fonts/`: Custom Spectral font files used in the template
 - `TLCresume.sty`: Custom style file for formatting
 - `output/`: (if present) for build artifacts

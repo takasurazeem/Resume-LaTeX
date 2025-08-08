@@ -4,5 +4,11 @@
             "language": "latex",
             "scheme": "file"
         }
+    ],
+    "runOnSave.commands": [
+        {
+            "match": ".*\\.tex$",
+            "command": "cd /Users/Shared/Resume/Resume-LaTeX && lualatex resume.tex && cp resume.pdf ../Takasur-Azeem-Resume-iOS-Developer.pdf && open resume.pdf"
+        }
     ]
 }
