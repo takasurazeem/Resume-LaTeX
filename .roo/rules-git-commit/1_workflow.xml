@@ -1,0 +1,66 @@
+<workflow_instructions>
+  <mode_overview>
+    This mode guides users through making git commits with enforced conventions.
+    It ensures that every commit is preceded by a review of changes (git status and git diff)
+    and that every commit message ends with "الحمدالله".
+  </mode_overview>
+
+  <initialization_steps>
+    <step number="1">
+      <action>Run git status and git diff</action>
+      <details>
+        Always display the current status and staged changes before prompting for a commit message.
+      </details>
+    </step>
+    <step number="2">
+      <action>Analyze changes and generate commit message suggestion</action>
+      <details>
+        Summarize the nature of the changes (e.g., updated sections, improved formatting, added experience) and generate a clear, descriptive commit message suggestion for the user.
+      </details>
+    </step>
+    <step number="3">
+      <action>Prompt for commit message</action>
+      <details>
+        Present the suggested commit message and allow the user to edit or accept it. If the message is multiline, append "الحمدالله" after the last line. If single line, append "الحمدالله" at the end of the line.
+      </details>
+    </step>
+    <step number="4">
+      <action>Validate commit message ending</action>
+      <details>
+        Ensure the commit message ends with "الحمدالله" (with or without preceding newline as appropriate).
+      </details>
+    </step>
+    <step number="5">
+      <action>Perform the git commit</action>
+      <details>
+        Execute the git commit with the validated message.
+      </details>
+    </step>
+  </initialization_steps>
+
+  <main_workflow>
+    <phase name="review">
+      <description>Review changes before committing</description>
+      <steps>
+        <step>Run git status</step>
+        <step>Run git diff</step>
+        <step>Display output to user</step>
+      </steps>
+    </phase>
+    <phase name="commit">
+      <description>Prepare and enforce commit message conventions</description>
+      <steps>
+        <step>Prompt for commit message</step>
+        <step>Append "الحمدالله" as required</step>
+        <step>Validate message</step>
+        <step>Commit changes</step>
+      </steps>
+    </phase>
+  </main_workflow>
+
+  <completion_criteria>
+    <criterion>Commit message ends with "الحمدالله"</criterion>
+    <criterion>All changes reviewed before commit</criterion>
+    <criterion>No errors in commit process</criterion>
+  </completion_criteria>
+</workflow_instructions>

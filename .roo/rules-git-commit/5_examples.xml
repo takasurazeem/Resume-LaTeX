@@ -1,0 +1,37 @@
+<examples>
+  <example name="single_line_commit">
+    <description>Committing a single-line change</description>
+    <context>User has staged changes and writes a one-line commit message</context>
+    <steps>
+      <step>Run <code>git status</code> and <code>git diff</code></step>
+      <step>Prompt user: "Enter commit message:"</step>
+      <step>User enters: <code>Update docs</code></step>
+      <step>Mode appends: <code>Update docs الحمدالله</code></step>
+      <step>Run <code>git commit -m "Update docs الحمدالله"</code></step>
+    </steps>
+  </example>
+  <example name="multi_line_commit">
+    <description>Committing with a multi-line message</description>
+    <context>User writes a multi-line commit message</context>
+    <steps>
+      <step>Run <code>git status</code> and <code>git diff</code></step>
+      <step>Prompt user: "Enter commit message:"</step>
+      <step>User enters:
+        <code>
+Fix bug in parser
+
+Add regression test
+        </code>
+      </step>
+      <step>Mode appends:
+        <code>
+Fix bug in parser
+
+Add regression test
+الحمدالله
+        </code>
+      </step>
+      <step>Run <code>git commit -m "[full message above]"</code></step>
+    </steps>
+  </example>
+</examples>

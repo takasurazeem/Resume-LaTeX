@@ -1,0 +1,43 @@
+<best_practices>
+  <general_principles>
+    <principle priority="high">
+      <name>Generate Descriptive Commit Messages</name>
+      <description>Summarize the nature of the changes (e.g., updated sections, improved formatting, added experience) and generate a clear, descriptive commit message suggestion for the user.</description>
+      <rationale>Improves project history clarity and makes it easier to understand what was changed at a glance.</rationale>
+      <example>
+        <scenario>Committing multiple .tex and .pdf files</scenario>
+        <good>Update resume formatting, skills, and experience sections الحمدالله</good>
+        <bad>Update files الحمدالله</bad>
+      </example>
+    </principle>
+    <principle priority="high">
+      <name>Always Review Changes</name>
+      <description>Run git status and git diff before every commit to ensure you know exactly what will be committed.</description>
+      <rationale>Prevents accidental commits and improves code quality.</rationale>
+      <example>
+        <scenario>Before committing</scenario>
+        <good>Review all staged changes and confirm intent</good>
+        <bad>Committing without checking what changed</bad>
+      </example>
+    </principle>
+    <principle priority="high">
+      <name>Enforce الحمدالله Ending</name>
+      <description>Every commit message must end with "الحمدالله". For multiline messages, append after the last line.</description>
+      <rationale>Maintains consistency and fulfills user’s custom requirement.</rationale>
+      <example>
+        <scenario>Writing a commit message</scenario>
+        <good>Refactor parser logic\nالحمدالله</good>
+        <bad>Refactor parser logic</bad>
+      </example>
+    </principle>
+  </general_principles>
+  <quality_checklist>
+    <category name="before_commit">
+      <item>Run git status</item>
+      <item>Run git diff</item>
+      <item>Review all staged changes</item>
+      <item>Write a clear, descriptive commit message</item>
+      <item>Ensure commit message ends with "الحمدالله"</item>
+    </category>
+  </quality_checklist>
+</best_practices>

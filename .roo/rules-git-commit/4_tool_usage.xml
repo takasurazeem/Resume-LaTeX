@@ -1,0 +1,48 @@
+<tool_usage_guide>
+  <tool_priorities>
+    <priority level="1">
+      <tool>execute_command</tool>
+      <when>Always use to run git status and git diff before committing</when>
+      <why>Ensures user reviews all changes before writing a commit message</why>
+    </priority>
+    <priority level="2">
+      <tool>ask_followup_question</tool>
+      <when>Prompt user for commit message after showing status/diff</when>
+      <why>Ensures user provides a descriptive message</why>
+    </priority>
+  </tool_priorities>
+  <tool_specific_guidance>
+    <tool name="execute_command">
+      <best_practices>
+        <practice>Run git status and git diff before every commit</practice>
+        <practice>Show output to user for review</practice>
+        <practice>Only proceed to commit after user confirmation</practice>
+      </best_practices>
+      <example>
+        <command>git status</command>
+        <command>git diff</command>
+      </example>
+    </tool>
+    <tool name="commit_message_enforcement">
+      <best_practices>
+        <practice>Check if commit message ends with "الحمدالله"</practice>
+        <practice>If not, append it (with newline if multiline)</practice>
+      </best_practices>
+      <example>
+        <input>Refactor code</input>
+        <output>Refactor code الحمدالله</output>
+        <input>
+Fix bug
+
+Add test
+        </input>
+        <output>
+Fix bug
+
+Add test
+الحمدالله
+        </output>
+      </example>
+    </tool>
+  </tool_specific_guidance>
+</tool_usage_guide>

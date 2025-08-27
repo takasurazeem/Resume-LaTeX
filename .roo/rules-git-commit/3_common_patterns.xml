@@ -1,0 +1,26 @@
+<common_patterns>
+  <commit_message_patterns>
+    <pattern>
+      <description>Single-line commit message</description>
+      <example>
+        <message>Update README.md الحمدالله</message>
+      </example>
+    </pattern>
+    <pattern>
+      <description>Multi-line commit message</description>
+      <example>
+        <message>
+Fix bug in parser
+
+الحمدالله
+        </message>
+      </example>
+    </pattern>
+    <pattern>
+      <description>Enforcement logic</description>
+      <explanation>
+        If the commit message does not end with "الحمدالله", append it after the last line (with a newline if multiline).
+      </explanation>
+    </pattern>
+  </commit_message_patterns>
+</common_patterns>
