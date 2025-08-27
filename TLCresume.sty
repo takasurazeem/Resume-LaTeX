@@ -6,23 +6,17 @@
 % FONT STUFF
 
 \usepackage{fontspec} % Use custom fonts
-\setmainfont{Spectral}[
-  Path = ./fonts/, % Change this path to the directory where your font files are located
-  Extension = .ttf,
-  UprightFont = *-Regular,
-  BoldFont = *-Bold,
-  ItalicFont = *-Italic,
-  BoldItalicFont = *-BoldItalic
-]
+\setmainfont{Helvetica}
 
 \RequirePackage[10pt]{moresize}
 \usepackage{anyfontsize}
 \RequirePackage{csquotes}
 
 % MARGINS AND SPACING
-\RequirePackage[margin=.5in, top=.5in]{geometry} % Set Margins
+\RequirePackage[margin=0.65in, top=0.65in]{geometry} % Set Margins
 \raggedright % left align no indent
 \raggedbottom % top align no indent
+\linespread{1.2} % Increase line spacing
 
 % COLOR
 \RequirePackage{xcolor}
@@ -38,7 +32,7 @@
 
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
-\titlespacing*{\section}{0em}{1.5em}{0em} % Space between sections. 1.5 em
+\titlespacing*{\section}{0em}{2.2em}{0em} % More space between sections
 \titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
 % SUBSECTION FORMATTING
 \titlespacing*{\subsection}{0em}{0em}{0em}
@@ -51,7 +45,7 @@
 \newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
 
 % tighter spacing than itemize
-\setlist[itemize]{align=parleft,left=0pt..1em}
+\setlist[itemize]{align=parleft,left=1.5em,labelindent=0.5em}
 \newenvironment{zitemize}{
 \begin{itemize} \itemsep .5em \parskip 0pt \parsep 1pt}
 {\end{itemize}\vspace{.5em}}
