@@ -4,7 +4,7 @@
 		{
 			"type": "shell",
 			"label": "Build and Open Resume PDF on Save",
-			"command": "cd /Users/Shared/Resume/Resume-LaTeX && lualatex resume.tex && cp resume.pdf ../Takasur-Azeem-Resume-iOS-Developer.pdf && open resume.pdf",
+			"command": "lualatex --jobname=Takasur-Azeem-iOS-Developer resume.tex && open Takasur-Azeem-iOS-Developer.pdf",
 			"group": "build",
 			"problemMatcher": []
 		}
