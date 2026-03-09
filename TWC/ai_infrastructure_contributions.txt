@@ -1,0 +1,359 @@
+═══════════════════════════════════════════════════════════════════
+AI INFRASTRUCTURE & AGENT CONTRIBUTIONS
+═══════════════════════════════════════════════════════════════════
+
+## Overview: Developer Tooling & AI Integration
+
+Beyond shipping 93+ features, you also architected the AI/agent infrastructure 
+that enables the entire development workflow for Roo Code → Claude Code transition.
+
+───────────────────────────────────────────────────────────────────
+MAJOR AI INFRASTRUCTURE CONTRIBUTIONS
+───────────────────────────────────────────────────────────────────
+
+### 1️⃣ CLAUDE CODE CONFIGURATION & RULES SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Status**: Core infrastructure | Ongoing optimization
+**Impact**: All developers using Claude Code in the project
+
+**Key Accomplishments**:
+
+📋 **Rules Architecture**
+  - Created 8 core rule files (966 total lines of documentation)
+  - Organized by domain:
+    • `swift-concurrency.md` - Swift 6 concurrency patterns + migration guide
+    • `swift-observable.md` - @Observable macro best practices
+    • `watchos-development.md` - watchOS-specific guidelines
+    • `build-workflow.md` - Safety guardrails for build/test automation
+    • `feature-folder-structure.md` - Hybrid folder structure guidelines
+    • `file-creation.md` - Swift file header standards
+    • `plan-management.md` - Implementation plan organization
+    • `xcode-project.md` - Xcode 26 filesystem sync behavior
+  
+✨ **Configuration Management**
+  - Configured `.claude/` directory structure
+  - Set up `.mcp.json` with 3 MCP server integrations:
+    • Context7 - Code context and semantic search
+    • Atlassian - Jira and Confluence integration
+    • Figma Dev Mode - Design system integration
+  - Created `settings.local.json` for permission management
+  - Established attribution policy (Mercury AI branding)
+
+💡 **Developer Experience**
+  - Documented configuration with comprehensive README.md
+  - Created migration guide from Roo → Claude Code
+  - Established permission model with explicit allow/deny patterns
+  - Set up MCP server auto-discovery and prompt
+
+**Related PR**: #6975
+  - Optimized Claude rules system
+  - Converted workflows to on-demand skills
+  - **Result**: 65% reduction in always-loaded context (49KB → 17.5KB)
+
+───────────────────────────────────────────────────────────────────
+
+### 2️⃣ SKILLS SYSTEM (7 SPECIALIZED SKILLS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Architecture**: On-demand specialized agents
+**Usage**: Invoked via `/skill-name` commands
+
+#### ✅ /commit - Git Commit Automation
+**Purpose**: Structured commit message generation with proper formatting
+**Capabilities**:
+  - Automatic git staging of relevant files
+  - Diff generation and analysis
+  - Intelligent commit message drafting (following repository conventions)
+  - Proper sign-off and ticket references
+  - Prevents accidental force pushes and destructive operations
+  - Validates pre-commit hooks
+
+**Related PR**: #6526 (git-commit mode)
+  - +4,481 lines of workflow configuration
+  - 21 files for XML instruction setup
+  - Integrated with Jira for automatic ticket linking
+
+#### ✅ /create-pr - Pull Request Automation  
+**Purpose**: Full PR workflow from branch creation to merge
+**Capabilities**:
+  - Branch status analysis and synchronization
+  - PR template population with smart defaults
+  - Jira ticket status updates (via MCP)
+  - Automatic change summary generation
+  - Risk analysis and impact assessment
+  - Draft/ready-for-review state management
+
+**Related PR**: #6526 (create-pr mode)
+  - Integrated GitHub CLI workflow
+  - Automatic ticket number extraction from branch names
+  - Mercury AI attribution in PR bodies
+
+#### ✅ /jira - Jira Ticket Creation
+**Purpose**: Structured ticket creation with test plans
+**Capabilities**:
+  - Ticket template population (CI board defaults)
+  - Test plan generation
+  - Impacted area analysis
+  - MCP integration for automatic updates
+  - Link creation between tickets and code
+  - Mercury AI attribution
+
+#### ✅ /merge-resolver - Merge Conflict Resolution
+**Purpose**: Intelligent merge conflict resolution
+**Capabilities**:
+  - Git history analysis
+  - Intent recognition for conflicting changes
+  - Intelligent combine strategy
+  - Documentation of resolution decisions
+  - Preservation of code logic across conflicts
+
+#### ✅ /swift-concurrency - Swift Concurrency Expert
+**Purpose**: Expert guidance on Swift 6 concurrency patterns
+**Scope**: ~40KB of specialized references
+**Provides**:
+  - Actor isolation guidance
+  - Sendable conformance help
+  - Data race diagnostics
+  - Async/await patterns
+  - MainActor/nonisolated recommendations
+  - Swift 6 migration assistance
+  - Testing patterns with concurrency
+  - Performance optimization tips
+  - Glossary of concurrency terms
+
+**Files**: 10+ reference documents covering:
+  - async-await-basics.md
+  - actors.md
+  - sendable.md
+  - tasks.md
+  - async-sequences.md
+  - memory-management.md
+  - testing.md
+  - performance.md
+  - threading.md
+  - core-data.md
+  - linting.md
+  - glossary.md
+
+#### ✅ /file-creation - Swift File Generation
+**Purpose**: Auto-invoked for creating new Swift files
+**Capabilities**:
+  - Xcode-style headers with proper formatting
+  - Author attribution from git config
+  - Correct date formatting (M/D/YY)
+  - Target name inference from file location
+  - One type per file convention enforcement
+  - Project structure awareness
+
+#### ✅ /figma-to-code - Figma Design → SwiftUI
+**Purpose**: Auto-invoked when Figma links shared
+**Complexity**: Advanced design-to-code transformation
+**Implementation** (+2,489 lines | PR #6995):
+  
+  **Key Features**:
+  - Auto-invocation on Figma link detection
+  - StyleLibrary integration:
+    • Spacing normalization (7→8, 11→12, etc.)
+    • Hex color → StyleLibrary named color mapping
+    • Font and typography mapping
+  - Component reuse detection
+  - TintingIcon asset integration
+  - SwiftUI code generation with proper structure
+  - TODO checklists for unmapped colors/assets
+  - Pink fallback colors for obvious unmapped values
+  - Proper Xcode file headers via file-creation skill
+  
+  **MCP Permissions Added**:
+  - mcp__figma-dev-mode__get_code_connect_suggestions
+  - Bash(find:*) for asset discovery
+  
+  **Reference Documentation**:
+  - spacing-patterns.md - Spacing system mappings
+  - color-lookup.md - Color to StyleLibrary conversion table
+
+───────────────────────────────────────────────────────────────────
+
+### 3️⃣ MIGRATION: ROO CODE → CLAUDE CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Scope**: Complete workflow migration with minimal disruption
+**Time**: Ongoing since early 2026
+
+**Migration Accomplished**:
+
+From Roo XML Rules → Claude Code Markdown + Skills
+
+| Component | Roo Location | Claude Code Location | Status |
+|-----------|--------------|----------------------|--------|
+| Git Commits | `.roo/rules-git-commit/` | `.claude/skills/commit/` | ✅ Migrated |
+| PR Creation | `.roo/rules-create-pr/` | `.claude/skills/create-pr/` | ✅ Migrated |
+| Jira Tickets | `.roo/rules-jira/` | `.claude/skills/jira/` | ✅ Migrated |
+| Merge Resolution | `.roo/rules-merge-resolver/` | `.claude/skills/merge-resolver/` | ✅ Migrated |
+| MCP Config | `.roo/mcp.json` | `.mcp.json` (root) | ✅ Migrated |
+| Core Rules | `.roo/rules.md` | `.claude/rules/*.md` | ✅ Expanded |
+
+**Improvements Over Roo**:
+  - Better readability (Markdown vs XML)
+  - Organized rule files by domain
+  - On-demand skills reduce context overhead
+  - Explicit permissions model
+  - Mercury AI attribution policy
+  - Enhanced MCP server integration
+
+───────────────────────────────────────────────────────────────────
+
+### 4️⃣ MCP (MODEL CONTEXT PROTOCOL) INTEGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Architecture**: 3 specialized MCP servers configured
+
+**Context7 Server**
+  - Provides semantic code understanding
+  - Library documentation retrieval
+  - Cross-reference resolution
+  - Used in: figma-to-code, swift-concurrency skills
+
+**Atlassian Server**
+  - Jira ticket creation and updates
+  - Confluence integration
+  - Automatic ticket linking
+  - Used in: /create-pr, /jira skills
+  - Attribution: Mercury AI branding
+
+**Figma Dev Mode Server**
+  - Design system access
+  - Code Connect suggestions
+  - Asset inventory
+  - Local SSE server (port 3845)
+  - Used in: /figma-to-code skill
+
+───────────────────────────────────────────────────────────────────
+
+### 5️⃣ OPTIMIZATION & PERFORMANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Related PR**: #6975 - "Optimize Claude rules and convert workflows to skills"
+**Status**: Merged Jan 23, 2026 | +1,983 lines | 16 files
+
+**Performance Improvements**:
+  • Context reduction: 49KB → 17.5KB (65% savings)
+  • Token reduction: 12,000-15,000 → 4,400 tokens
+  • On-demand loading: Only active skills loaded
+  • Faster AI response times
+
+**Technical Changes**:
+  • Converted 4 workflows to on-demand skills
+  • Extracted new rules from watch app development
+  • Reduced redundancy in documentation
+  • Streamlined rule structure
+
+───────────────────────────────────────────────────────────────────
+
+### 6️⃣ ATTRIBUTION & GOVERNANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Policy**: Mercury AI branding for AI-generated content
+
+**Applied To**:
+  • Pull requests: "This PR body was generated using Mercury AI"
+  • Jira tickets: "This ticket was created using Mercury AI"
+
+**NOT Applied To**:
+  • Git commits: No AI attribution (maintains historical accuracy)
+  • Code comments: Only human-written comments
+  • Enforced via: settings.local.json + workflow rules
+
+───────────────────────────────────────────────────────────────────
+
+### 7️⃣ DOCUMENTATION & STANDARDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Created**:
+  • `.claude/README.md` - Complete configuration guide
+  • Migration guide from Roo to Claude Code
+  • MCP server setup documentation
+  • Permission model explanation
+  • Workflow usage tips
+
+**Documented Standards**:
+  • Swift file creation conventions
+  • Feature folder structure (hybrid approach)
+  • watchOS development patterns
+  • Swift 6 concurrency best practices
+  • Xcode project management
+  • Build/test automation guardrails
+
+───────────────────────────────────────────────────────────────────
+RELATED PULL REQUESTS
+───────────────────────────────────────────────────────────────────
+
+1. **PR #6975**: Optimize Claude rules and convert workflows to skills
+   - Date: Jan 23, 2026
+   - Impact: 65% context reduction
+   - Changes: 1,983 additions, 224 deletions, 16 files
+
+2. **PR #6995**: Figma-to-Code Skill Implementation
+   - Date: Jan 29, 2026
+   - Impact: Design system integration
+   - Changes: 2,489 additions, 1 deletion, 10 files
+
+3. **PR #6956**: Live Activities Documentation (contains Claude Code setup)
+   - Date: Jan 15, 2026
+   - Includes: MCP and Claude Code configuration
+
+4. **PR #6526**: Git-Commit and Create-PR Modes for Workflow Automation
+   - Date: Sep 12, 2025
+   - Impact: Roo mode foundation (later ported to Claude Code)
+   - Changes: 4,481 additions, 0 deletions, 21 files
+
+───────────────────────────────────────────────────────────────────
+LINKEDIN BULLET POINTS - AI/INFRASTRUCTURE CONTRIBUTIONS
+───────────────────────────────────────────────────────────────────
+
+✨ **Developer Tooling & AI Integration**
+
+• Architected Claude Code configuration system with 8 domain-specific rule files (966 lines of documentation) for Swift concurrency, watchOS development, and CI/CD workflows
+
+• Designed and implemented 7 specialized AI skills (on-demand agents) automating git workflows, PR creation, Jira ticketing, and design-to-code conversion
+
+• Engineered Figma-to-SwiftUI conversion system with StyleLibrary integration, normalizing design system spacing/colors to codegen (@figma-to-code skill, +2.5K LOC)
+
+• Migrated complete Roo Code workflow architecture to Claude Code with Markdown-based rules and MCP (Model Context Protocol) server integration
+
+• Optimized AI context overhead by 65% (49KB → 17.5KB) through strategic on-demand skill loading and rule system restructuring
+
+• Configured 3 specialized MCP servers (Context7, Atlassian, Figma Dev Mode) enabling semantic code search, Jira integration, and design system automation
+
+• Established attribution governance and Mercury AI branding policy across git, PR, and ticket creation workflows
+
+• Implemented Swift Concurrency expert skill with comprehensive reference documentation (10+ guides on async/await, actors, sendable, data races)
+
+───────────────────────────────────────────────────────────────────
+HOW TO PRESENT THIS
+───────────────────────────────────────────────────────────────────
+
+FOR LINKEDIN UNDER "SKILLS":
+Add these skill tags:
+  ✓ Claude Code Configuration
+  ✓ Roo Code Configuration
+  ✓ MCP (Model Context Protocol)
+  ✓ AI Workflow Automation
+  ✓ Developer Tooling
+  ✓ Figma Design System Integration
+
+FOR EXPERIENCE SECTION:
+Create a separate bullet point focused on AI infrastructure:
+
+"Architected AI agent infrastructure and automation systems:
+ • Designed 7 specialized AI skills (on-demand agents) for git commits, 
+   PR creation, Jira integration, and design-to-code conversion
+ • Optimized Claude Code context by 65% through strategic rule organization 
+   and on-demand skill loading
+ • Integrated 3 MCP servers (Context7, Atlassian, Figma) enabling semantic 
+   code understanding and design system automation
+ • Migrated complete Roo Code workflow system to Claude Code with improved 
+   organization and performance"
+
+FOR INTERVIEWS / TECHNICAL DISCUSSIONS:
+Highlight these differentiators:
+  1. "I configured AI agents to accelerate development workflows"
+  2. "I designed a system that reduces AI context overhead by 65%"
+  3. "I integrated MCP servers for semantic code understanding and external integrations"
+  4. "I established governance for AI-generated content attribution"
+  5. "I automated design-to-code conversion using StyleLibrary mapping"
+
+───────────────────────────────────────────────────────────────────

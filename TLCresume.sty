@@ -13,10 +13,10 @@
 \RequirePackage{csquotes}
 
 % MARGINS AND SPACING
-\RequirePackage[margin=0.65in, top=0.65in]{geometry} % Set Margins
+\RequirePackage[margin=0.5in, top=0.5in, bottom=0.3in]{geometry} % More room at the bottom
 \raggedright % left align no indent
 \raggedbottom % top align no indent
-\linespread{1.2} % Increase line spacing
+\linespread{1.05} % Even tighter line spacing
 
 % COLOR
 \RequirePackage{xcolor}
@@ -32,23 +32,23 @@
 
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
-\titlespacing*{\section}{0em}{2.2em}{0em} % More space between sections
+\titlespacing*{\section}{0em}{1.0em}{0.3em} % Further reduced space between sections
 \titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
 % SUBSECTION FORMATTING
-\titlespacing*{\subsection}{0em}{0em}{0em}
+\titlespacing*{\subsection}{0em}{0.4em}{0em} % Further adjusted spacing for subsections
 \titleformat{\subsection}{\bfseries}{}{0em}{}[]
 
 % BOLD COMMAND
 \newcommand{\skills}[1]{ {\bfseries #1}}
 
 % SUBTEXT
-\newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
+\newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.4em}}
 
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=1.5em,labelindent=0.5em}
 \newenvironment{zitemize}{
-\begin{itemize} \itemsep .5em \parskip 0pt \parsep 1pt}
-{\end{itemize}\vspace{.5em}}
+\begin{itemize} \itemsep .1em \parskip 0pt \parsep 0.5pt}
+{\end{itemize}\vspace{.1em}}
 
 % NO PAGE NUMBER
 \pagenumbering{gobble}

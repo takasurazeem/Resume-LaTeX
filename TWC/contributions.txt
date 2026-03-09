@@ -1,0 +1,101 @@
+# B2C iOS Apps - Merged PR Contributions (93 PRs)
+
+## Live Activities & Real-Time Features
+- Implemented comprehensive real-time rain (RTR) Live Activities system with full notification and widget integration
+- Fixed Live Activity dismissal issues on iPad for navigation vs modal presentations
+- Resolved duplicate Live Activity displays on lock screen
+- Implemented hide edit Live Activity feature for non-US locations
+- Fixed stale state message and copy updates for Live Activity displays
+- Added ability to enable RTR Live Activities with backend integration
+- Fixed Live Activity stale message display logic
+- Added comprehensive Live Activities documentation and development setup guide
+
+## Authentication & User Management
+- Fixed blank screen and navigation issues after user login
+- Resolved logout issues after password changes for logged-out users
+- Added loader animation when loading after user login
+- Handled missing first names for logged-in users on landing page
+- Fixed soft gate navigation regression for tablets with proper consent initialization
+- Implemented SOD (Sell-or-Don't Sell) consent initialization in softgate welcome screen
+- Resolved softgate footer not updating when navigating between location and notification steps
+
+## Onboarding Flow Improvements
+- Implemented premium upsell integration into onboarding flow
+- Refactored to remove onboarding upsell step and simplify overall flow
+- Fixed post sign-up morning brief screen not appearing
+- Directed logged-in users to location screen instead of welcome screen
+- Fixed onboarding UI sync issues for both registered and anonymous users
+- Added registration value proposition carousel
+- Fixed onboarding UI inconsistencies for top stories notifications
+
+## Notifications & Deep Linking
+- Created iMessages Current Observations Card with view_data API integration
+- Implemented deep linking to TWC app via URL scheme
+- Fixed view_data API response parsing with comprehensive logging
+- Added git-commit and create-pr workflow automation modes
+- Implemented scroll-triggered registration modal analytics tracking
+- Added analytics tracking for CurrentConditions module views
+
+## UI/UX Bug Fixes & Polish
+- Fixed fullscreen cover dismissal issues on iPad for navigation vs modal presentations
+- Fixed Growthbook diagnostics menu not working on iOS 26 simulator
+- Fixed broken compilation in FileLogger.internalTrace
+- Fixed sign-out button not being responsive on initial tap
+- Fixed blank screen issues across multiple navigation flows
+- Fixed non-responsive tap handling in interactive UI elements
+- Fixed iPad-specific presentation issues
+
+## Data & Analytics
+- Added asset-feedback analytics tracking for recommendation engine
+- Fixed breaking news toggle not showing after certain user actions
+- Fixed non-US locations subscribing to incorrect GIA subscriptions
+- Moved notifications.json to v3 schema for new alert types
+- Added metrics tracking for user interactions with location and notification screens
+
+## Alert & Weather Features
+- Fixed backend showing incorrect alerts for different locations
+- Created UI flight number module for airline lookups
+- Implemented airline lookup modal with comprehensive data display
+- Added horizontal scroll view support for multiple tropical storms
+- Fixed alert display logic across different weather conditions
+
+## Performance & Technical Improvements
+- Updated CriticalSectionSerializer to use OSAllocatedUnfairLock (with revert/re-merge for stability)
+- Fixed Xcode performance warnings related to I/O on main thread
+- Updated to latest Pangea logging library (v5.8.7) for improved logging
+- Implemented static asset branch selection for PR-specific asset handling
+- Updated Firebase dependency to v11.10.0 with full integration testing
+- Refactored Xcode project to use buildable folders instead of groups
+
+## Accessibility & Haptics
+- Added haptic feedback to radar timeline on iOS
+- Implemented haptics when date changes in hourly list
+- Added haptic feedback to radar timeline interactions
+
+## Radar & Interactive Features
+- Fixed crash on radar screen with Pangea pulsing dot
+- Implemented dynamic text and color for smart module badges
+
+## Localization & Settings
+- Fixed unit measure persistence without requiring hard refresh
+- Fixed probabilistic snowfall explainers not triggering in production
+- Removed comma in greeting on welcome screen for consistency
+
+## Email & User Preferences
+- Implemented modal for email opt-ins post social login for new registrations
+- Implemented email preferences modal with proper user consent tracking
+
+## Widget System
+- Added PR-specific static assets URL handling for widget testing
+
+## Code Quality & Maintenance
+- Fixed main branch compilation errors
+- Optimized Claude rules and converted workflows to skills for automation
+- Figured out the lazy way to update branches (git-related task)
+- Multiple back-merge operations to keep branches synchronized
+- Updated pull request template for consistency
+
+## Infrastructure
+- Fixed StoreKit configuration removal from Xcode schema
+- Maintained Xcode project structure with proper file organization
+- Subsystem privacy feature implementation and testing
