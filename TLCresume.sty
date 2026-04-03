@@ -6,25 +6,24 @@
 % FONT STUFF
 
 \usepackage{fontspec} % Use custom fonts
-\setmainfont{Helvetica}
+\setmainfont{Times New Roman}
 
-\RequirePackage[10pt]{moresize}
+\RequirePackage[11pt]{moresize}
 \usepackage{anyfontsize}
 \RequirePackage{csquotes}
 
 % MARGINS AND SPACING
-\RequirePackage[margin=0.5in, top=0.5in, bottom=0.3in]{geometry} % More room at the bottom
+\RequirePackage[margin=1in]{geometry}
 \raggedright % left align no indent
 \raggedbottom % top align no indent
-\linespread{1.05} % Even tighter line spacing
+\linespread{1.0} % Standard single line spacing
 
 % COLOR
 \RequirePackage{xcolor}
-\definecolor{highlight}{RGB}{61, 90, 128} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
 
 % LINKS
 \RequirePackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=highlight}
+\hypersetup{colorlinks=true,urlcolor=black}
 
 % BULLET POINTS
 \RequirePackage[inline]{enumitem}
@@ -32,8 +31,8 @@
 
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
-\titlespacing*{\section}{0em}{1.0em}{0.3em} % Further reduced space between sections
-\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
+\titlespacing*{\section}{0em}{1.0em}{0.3em}
+\titleformat{\section}{\bfseries \raggedright}{}{0em}{\underline}
 % SUBSECTION FORMATTING
 \titlespacing*{\subsection}{0em}{0.4em}{0em} % Further adjusted spacing for subsections
 \titleformat{\subsection}{\bfseries}{}{0em}{}[]
@@ -44,10 +43,10 @@
 % SUBTEXT
 \newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.4em}}
 
-% tighter spacing than itemize
-\setlist[itemize]{align=parleft,left=1.5em,labelindent=0.5em}
+% standard spacing matching word documents
+\setlist[itemize]{leftmargin=*}
 \newenvironment{zitemize}{
-\begin{itemize} \itemsep .1em \parskip 0pt \parsep 0.5pt}
+\begin{itemize}}
 {\end{itemize}\vspace{.1em}}
 
 % NO PAGE NUMBER

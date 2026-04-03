@@ -288,3 +288,4 @@ TSWLatexianTemp*
 #*Notes.bib
 sections/*.pdf
 sections/experience.pdf
+*.docx

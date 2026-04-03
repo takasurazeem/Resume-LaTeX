@@ -1,0 +1,127 @@
+\documentclass[letter,10pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+% Traditional Serif Font
+\usepackage{fontspec}
+\setmainfont{Spectral-Regular}[
+    Path = ./fonts/,
+    Extension = .ttf,
+    BoldFont = Spectral-Bold,
+    ItalicFont = Spectral-Italic,
+    BoldItalicFont = Spectral-BoldItalic
+]
+
+\definecolor{primary}{RGB}{0, 0, 0}
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+% Section Formatting
+\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{1em}{0.5em}
+
+\newcommand{\role}[4]{
+    \noindent\textbf{#1} \hfill #3 \\
+    \textit{#2} \hfill #4 \\
+}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Takasur Azeem}} \\
+    Louisville, KY | (502) 442-8429 | \href{mailto:takasurazeem@gmail.com}{takasurazeem@gmail.com} \\
+    \href{https://linkedin.com/in/takasur-azeem}{LinkedIn: takasur-azeem} | \href{https://github.com/takasurazeem}{GitHub: takasurazeem}
+\end{center}
+
+\section*{Summary}
+Performance-driven Software Engineer with extensive experience in the iOS ecosystem, specialized in architecting high-scale applications for 400M+ users. Expertise in Server-Driven UI (SDUI), real-time systems, and AI-assisted development infrastructure. Proven track record of delivering 90+ production features while optimizing developer velocity and system reliability in enterprise environments.
+
+\section*{Technical Skills}
+\noindent\textbf{Languages:} Swift 6, SwiftUI, UIKit, Objective-C, Bash, JSON, XML, SQL \\
+\textbf{Platforms:} iOS, iPadOS, watchOS, macOS, Apple TV, Firebase \\
+\textbf{AI \& Automation:} AI Agent Orchestration, MCP (Model Context Protocol), Claude Code, Roo Code, Prompt Engineering, GitHub Copilot \\
+\textbf{Tools \& Utilities:} Xcode 26, Git, Proxyman, Fastlane, SonarQube, Jira, CocoaPods, Carthage, SPM \\
+\textbf{Architecture:} MVVM, TCA (The Composable Architecture), SDUI, Modular Architecture, REST APIs \\
+\textbf{Database:} Core Data, Realm, SQLite, FireStore, RDS \\
+\textbf{Methodology:} Agile, Scrum, TDD (Test Driven Development), CI/CD (Travis, Jenkins)
+
+\section*{Selected Accomplishments}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Shipped 93+ production PRs (50K+ LOC) for The Weather Channel app, maintaining 99.9\% crash-free sessions.
+    \item Architected an enterprise-scale Real-Time Rain Live Activities system serving millions of users.
+    \item Engineered an AI-driven dev-tooling stack that reduced context overhead by 65\% and increased velocity by 25\%.
+    \item Led the end-to-end development of a 31K+ LOC watchOS companion app from POC to production-ready.
+\end{itemize}
+
+\section*{Professional Experience}
+
+\role{The Weather Channel}{Software Engineer}{August 2022 -- Present}{Atlanta, GA (Remote)}
+\noindent\textbf{Project Summary:} Architecting and scaling the world's most accurate forecaster app (416M active users) with a focus on real-time data visualization, Live Activities, and server-driven onboarding experiences.
+
+\noindent\textbf{Responsibilities:}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Architected Real-Time Rain Live Activities system using ActivityKit and push-to-start token lifecycles, integrating with UPSX alerts service for server-side token synchronization.
+    \item Engineered a complete watchOS companion app (31K+ LOC) featuring multi-tab navigation, interactive precipitation charts, and offline caching systems for weather data.
+    \item Developed and optimized 4 major components in the Customer Onboarding flow using Server-Driven UI (SDUI) to streamline premium conversions and registration value propositions.
+    \item Created iMessages Current Observations Card with view\_data API integration, enhancing cross-platform sharing capabilities.
+    \item Implemented deep linking to the TWC app via URL schemes, improving user re-engagement from external notifications.
+    \item Integrated Swift 6 concurrency patterns (Actors, Sendable) and optimized thread safety using OSAllocatedUnfairLock to reduce crash rates by 35\%.
+    \item Enhanced user experience with sophisticated Haptic Feedback systems integrated into the radar timeline and hourly forecast list views.
+    \item Optimized app loading time by 40\% through strategic I/O management and resolving main-thread performance bottlenecks.
+    \item Designed AI agent infrastructure with 7 specialized skills (Git automation, PR creation, Figma-to-Code) reducing context overhead by 65\%.
+    \item Modernized the development environment by refactoring the Xcode project to use buildable folders instead of groups, improving filesystem sync.
+    \item Managed App Store submission and approval processes for major releases, coordinating with cross-functional teams of 12+ members.
+    \item Standardized technical documentation with 600+ line architecture guides and Mermaid system diagrams for team DX.
+\end{itemize}
+\noindent\textbf{Tools Utilized:} Swift 6, SwiftUI, Xcode 26, ActivityKit, SDUI, Core Data, Proxyman, Claude Code, Fastlane, Firebase, Pangea Logging, Haptics SDK.
+
+\role{MTBC / CareCloud}{Software Engineer}{July 2021 -- August 2022}{Rawalpindi, PK}
+\noindent\textbf{Project Summary:} Promoted from iOS Developer to Software Engineer to lead architectural modernization and systems integration for a top-tier US telehealth platform serving 40,000+ providers.
+
+\noindent\textbf{Responsibilities:}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Architected and developed a complex integration solution to consolidate two disparate backend systems, ensuring a unified user experience across the telehealth suite.
+    \item Engineered a custom authentication module enabling seamless SSO-style migration for legacy application users into the modernized iOS platform.
+    \item Championed the adoption of Test-Driven Development (TDD) methodologies, significantly increasing code coverage and reducing regression defects.
+    \item Established and configured SonarQube for automated code analysis, identifying and remediating critical security and performance issues.
+    \item Automated the build and deployment pipeline using Fastlane, streamlining app distribution to QA teams and reducing release cycles.
+    \item Simplified the incorporation of new insurance-mandated compliance changes, reducing implementation time for regulatory features by 15\%.
+    \item Conducted in-depth technical interviews and behavioral assessments for iOS engineering hires, maintaining a 90\% retention rate.
+    \item Mentored junior developers on MVVM architecture and modular code design, resulting in a 30\% improvement in team velocity.
+\end{itemize}
+\noindent\textbf{Tools Utilized:} Swift, SwiftUI, Objective-C, UIKit, Composable Architecture (TCA), Fastlane, SonarQube, CoreData, RESTful APIs, TDD, Travis-CI, Microsoft AppCenter.
+
+\role{Freelance / Multiple Clients}{Software Developer}{June 2018 -- July 2021}{Remote}
+\noindent\textbf{Project Summary:} End-to-end development of custom mobile and web solutions for international clients across diverse industries.
+
+\noindent\textbf{Responsibilities:}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Delivered 50+ successful projects with 100\% client satisfaction rate across Upwork and Fiverr.
+    \item Developed automated solutions that scaled user bases from hundreds to 10,000+ active users.
+    \item Managed full project lifecycles: requirement gathering, UI/UX design, development, and deployment.
+\end{itemize}
+\noindent\textbf{Tools Utilized:} Swift, SwiftUI, Firebase, JavaScript, Automated Scripts.
+
+\role{SemangiX}{Software Engineer}{September 2018 -- September 2019}{Gujranwala, PK}
+\noindent\textbf{Responsibilities:}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Headed two high-impact projects resulting in a 30\% boost in annual company revenue.
+    \item Optimized RESTful API data retrieval times by 20\% through caching and database query refinement.
+    \item Coordinated team skill development, increasing proficiency in new technologies and methodologies by 40\%.
+\end{itemize}
+\noindent\textbf{Tools Utilized:} iOS SDK, REST APIs, SQL, MVC, Git.
+
+\section*{Education}
+\noindent\textbf{MS in Software Engineering (Coursework Completed)} \hfill 2019 -- 2021 \\
+International Islamic University Islamabad (IIUI) \\
+
+\noindent\textbf{BS in Information Technology} \hfill 2013 -- 2017 \\
+University of Sargodha
+
+\section*{Certifications}
+\noindent\textbf{iOS Development:} Test-Driven Development, Architecture, Protocol-Oriented Programming, Async/Await \& Actors (Udemy), ARKit Course. \\
+\textbf{Git:} Branches, Merges, and Remotes.
+
+\end{document}
